@@ -1,16 +1,13 @@
 import React from 'react';
 import {Provider} from 'react-redux';
-import {createStore} from 'redux';
-import combineReducer from './reducers/index'
 import {render} from 'react-dom'
 import {BrowserRouter, Route } from 'react-router-dom'
 import './helpers/vendor'
 import HomeContainer from "./containers/HomeContainer";
-
-const store = createStore(combineReducer);
+import {Store} from './Store'
 
 render(
-    <Provider store={store}>
+    <Provider store={Store}>
         <BrowserRouter>
             <div>
                 <Route path='/' component={HomeContainer} />
@@ -19,4 +16,3 @@ render(
     </Provider>,
     document.getElementById('app')
 );
-module.hot.accept();
